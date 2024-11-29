@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/quicksell-frontend/static/css/main.190feecb.css",
-    "main.js": "/quicksell-frontend/static/js/main.94e4713f.js",
+    "main.js": "/quicksell-frontend/static/js/main.f3f5defa.js",
     "static/js/453.f0f88b0d.chunk.js": "/quicksell-frontend/static/js/453.f0f88b0d.chunk.js",
     "static/media/Display.svg": "/quicksell-frontend/static/media/Display.0168095040354204011b596e30abf32e.svg",
     "static/media/nopriority.svg": "/quicksell-frontend/static/media/nopriority.7218b139313728c6a4efa8da6e34852b.svg",
@@ -14,11 +14,11 @@
     "static/media/Backlog.svg": "/quicksell-frontend/static/media/Backlog.97adf3356b7d2e775ef530f7aed206e0.svg",
     "static/media/To-do.svg": "/quicksell-frontend/static/media/To-do.c01d92afcffeef58b2cd9ae080df1f58.svg",
     "main.190feecb.css.map": "/quicksell-frontend/static/css/main.190feecb.css.map",
-    "main.94e4713f.js.map": "/quicksell-frontend/static/js/main.94e4713f.js.map",
+    "main.f3f5defa.js.map": "/quicksell-frontend/static/js/main.f3f5defa.js.map",
     "453.f0f88b0d.chunk.js.map": "/quicksell-frontend/static/js/453.f0f88b0d.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.190feecb.css",
-    "static/js/main.94e4713f.js"
+    "static/js/main.f3f5defa.js"
   ]
 }
