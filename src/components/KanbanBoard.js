@@ -31,6 +31,13 @@ const prior = {
     1: "Low Priority",
     0: "No Priority",
   }
+  const priorityOrder = {
+    "Urgent": 4,
+    "High Priority": 3,
+    "Medium Priority": 2,
+    "Low Priority": 1,
+    "No Priority": 0,
+  };
 
 
 const KanbanBoard = () => {
@@ -101,10 +108,8 @@ const KanbanBoard = () => {
     });
   };
 
-  // Group and sort tickets
   const groupedTickets = groupTickets();
 
-  // Loading or error state
   if (error) {
     return <p className="error-message">{error}</p>;
   }
@@ -115,7 +120,7 @@ const KanbanBoard = () => {
     
   return (
     <div className="kanban-board">
-      <div className="display">
+      <div className="display" onMouseLeave={() => setIsOpen(false)}>
       <img src={display} className="priority-icon" alt={`$Display icon`} />
       <button className="display-button" onClick={toggleDropdown}>
         Display 
@@ -132,22 +137,24 @@ const KanbanBoard = () => {
         </div>
       <div className="kanban-columns">
       {Object.keys(groupedTickets)
-          .sort((a, b) => {
-            if (grouping === "priority") {
-              return a.priority - b.priority;
-            }
-            return 0; 
-          }).map((group) => {
+        .sort((a, b) => {
+          if (grouping === "priority") {
+            return priorityOrder[b] - priorityOrder[a]; 
+          }
+          return 0; 
+        }).map((group) => {
           const user = users?.find((user) => user.name === group);
           const groupIcon = user
             ? `https://api.dicebear.com/6.x/initials/svg?seed=${user.name}` 
             : priorityIcons[group]; 
-
+            const ticketCount = groupedTickets[group]?.length || 0;
           return (
             <div key={group} className="kanban-column">
               <div className="kanban-column-header">
-                <h3 className="kanban-column-title">{group}</h3>
+                <h3 className="kanban-column-title">{group}
+                </h3>
                 <img src={groupIcon} className="priority-icon" alt={`${group}`} />
+                <span className="ticket-count">({ticketCount})</span>
               </div>
               {sortTickets(groupedTickets[group] || []).map((ticket) => (
                 <TicketCard key={ticket.id} ticket={ticket} users={users} group={group} />
